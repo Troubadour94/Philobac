@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Fiches de Philosophie — Terminale</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="philo.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="chapter-rail" aria-label="Navigation">
+        <a class="brand" href="#home">
+          <span class="brand-icon">φ</span>
+          <span>
+            <strong>Philosophie</strong>
+            <small>Terminale — Bac</small>
+          </span>
+        </a>
+
+        <div class="rail-section">
+          <p class="eyebrow">Notions</p>
+          <nav id="notionsNav" class="chapter-nav"></nav>
+        </div>
+
+        <div class="rail-section">
+          <p class="eyebrow">Méthode</p>
+          <nav class="chapter-nav">
+            <a class="nav-item" href="#methode">Dissertation & Explication</a>
+          </nav>
+        </div>
+
+        <div class="rail-section">
+          <p class="eyebrow">Références littéraires</p>
+          <nav id="litNav" class="chapter-nav"></nav>
+        </div>
+
+        <div class="rail-section">
+          <p class="eyebrow">Références picturales</p>
+          <nav id="pictNav" class="chapter-nav"></nav>
+        </div>
+
+        <div class="rail-section">
+          <p class="eyebrow">Références historiques</p>
+          <nav id="histNav" class="chapter-nav"></nav>
+        </div>
+
+        <div class="rail-section">
+          <p class="eyebrow">Références cinématographiques</p>
+          <nav id="cinaNav" class="chapter-nav">
+            <a class="nav-item empty" href="#">— à venir —</a>
+          </nav>
+        </div>
+      </aside>
+
+      <main class="reader">
+        <header class="topbar">
+          <button id="homeButton" class="ghost-button" type="button">≡ Menu</button>
+          <div class="topbar-status" id="statusText">Sélectionne une section</div>
+        </header>
+
+        <!-- Vue d'accueil -->
+        <section id="homeView" class="view active">
+          <div class="home-hero">
+            <p class="kicker">Terminale — Bac de Philosophie</p>
+            <h1>Fiches & Références</h1>
+            <p class="hero-sub">17 notions au programme · Références littéraires, picturales, historiques · Flashcards de révision</p>
+            <div class="home-grid">
+              <div class="home-card" id="goNotions">
+                <span class="home-card-icon">📚</span>
+                <h3>Notions</h3>
+                <p>Les 17 notions du programme avec auteurs, thèses et flashcards</p>
+              </div>
+              <div class="home-card" id="goLit">
+                <span class="home-card-icon">📖</span>
+                <h3>Références littéraires</h3>
+                <p>Textes fondateurs, mythes et œuvres à mobiliser</p>
+              </div>
+              <div class="home-card" id="goPict">
+                <span class="home-card-icon">🎨</span>
+                <h3>Références picturales</h3>
+                <p>Tableaux et œuvres d'art avec interprétations philosophiques</p>
+              </div>
+              <div class="home-card" id="goHist">
+                <span class="home-card-icon">🏛️</span>
+                <h3>Références historiques</h3>
+                <p>Événements et penseurs qui ont façonné la philosophie</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Vue notion -->
+        <section id="notionView" class="view"></section>
+
+        <!-- Vue référence littéraire -->
+        <section id="litView" class="view"></section>
+
+        <!-- Vue référence picturale -->
+        <section id="pictView" class="view"></section>
+
+        <!-- Vue référence historique -->
+        <section id="histView" class="view"></section>
+
+        <!-- Vue méthode -->
+        <section id="methodeView" class="view">
+          <div class="chapter-header">
+            <p class="kicker">Outils</p>
+            <h1>Méthode — Dissertation & Explication de texte</h1>
+            <p class="chapter-intro">Les clés pour réussir les exercices du bac.</p>
+          </div>
+          <div class="method-placeholder">
+            <p>— Contenu à venir —</p>
+          </div>
+        </section>
+
+        <!-- Vue flashcards -->
+        <section id="flashcardView" class="view">
+          <div class="flashcards-shell">
+            <div class="flashcards-hero">
+              <div>
+                <p class="kicker" id="fcKicker">Révision</p>
+                <h1 id="fcTitle">Flashcards</h1>
+                <p class="chapter-intro" id="fcIntro">Lis la question, réfléchis, puis révèle la réponse.</p>
+              </div>
+            </div>
+            <div class="fc-progress-bar"><div id="fcProgressFill"></div></div>
+            <div class="flashcard-container">
+              <div class="flashcard" id="flashcard">
+                <div class="flashcard-face flashcard-front">
+                  <p class="fc-type" id="fcType"></p>
+                  <h2 id="fcQuestion"></h2>
+                </div>
+                <div class="flashcard-face flashcard-back">
+                  <p class="fc-type">Réponse</p>
+                  <p id="fcAnswer"></p>
+                </div>
+              </div>
+            </div>
+            <div class="fc-controls">
+              <button id="fcRevealBtn" class="primary-button" type="button">Révéler la réponse</button>
+              <button id="fcNextBtn" class="primary-button" type="button" style="display:none">Question suivante →</button>
+              <button id="fcBackBtn" class="ghost-button" type="button">← Retour</button>
+            </div>
+            <p class="fc-counter" id="fcCounter"></p>
+          </div>
+        </section>
+      </main>
+    </div>
+    <script src="philo-data.js"></script>
+    <script src="philo-app.js"></script>
+  </body>
+</html>
